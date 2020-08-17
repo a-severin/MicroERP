@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyName>MicroERP</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Prism.DryIoc" Version="7.2.0.1422" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MicroERP.Core\MicroERP.Core.csproj" />
+    <ProjectReference Include="..\Modules\MicroERP.Modules.ModuleName\MicroERP.Modules.ModuleName.csproj" />
+    <ProjectReference Include="..\Modules\MicroERP.Modules.NavigationMenu\MicroERP.Modules.NavigationMenu.csproj" />
+    <ProjectReference Include="..\Services\MicroERP.Services.Interfaces\MicroERP.Services.Interfaces.csproj" />
+    <ProjectReference Include="..\Services\MicroERP.Services\MicroERP.Services.csproj" />
+  </ItemGroup>
+</Project>
