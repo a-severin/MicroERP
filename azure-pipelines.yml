@@ -40,8 +40,6 @@ steps:
   inputs:
     solution: '**/*.sln'
     clean: true
-    platform: 'AnyCPU'
-    configuration: 'Debug'
 
 - task: SonarCloudPrepare@1
   displayName: 'Prepare SonarCloud'
