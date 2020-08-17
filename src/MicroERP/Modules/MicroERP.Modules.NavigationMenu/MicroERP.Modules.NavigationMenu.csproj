@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ProjectGuid>{4346304E-10F6-404A-AF23-32D10D5E78BE}</ProjectGuid>
     <UseWPF>true</UseWPF>
     <AssemblyName>MicroERP.Modules.NavigationMenuModule</AssemblyName>
   </PropertyGroup>

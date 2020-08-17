@@ -1,6 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ProjectGuid>{A978300C-EB66-4776-B598-03A06D791820}</ProjectGuid>
     <UseWPF>true</UseWPF>
     <AssemblyName>MicroERP.Modules.ModuleName</AssemblyName>
   </PropertyGroup>

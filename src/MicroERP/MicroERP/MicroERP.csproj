@@ -2,6 +2,7 @@
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <ProjectGuid>{8BCB5FF0-C267-4B6B-8F9B-040123C758E2}</ProjectGuid>
     <UseWPF>true</UseWPF>
     <AssemblyName>MicroERP</AssemblyName>
   </PropertyGroup>
