@@ -1,0 +1,33 @@
+trigger:
+  branches:
+    include:
+    - '*'
+  paths:
+    exclude:
+    - docs/*
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  dotnetSdkVersion: '3.1.300'
+
+steps:
+- task: UseDotNet@2
+  displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
+  inputs:
+    version: '$(dotnetSdkVersion)'
+
+- task: DotNetCoreCLI@2
+  displayName: 'Restore project dependencies'
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+
+- template: templates/build.yml
+  parameters:
+    buildConfiguration: 'Debug'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  condition: succeeded()
