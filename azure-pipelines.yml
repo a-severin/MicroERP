@@ -32,3 +32,11 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'AzureDevOpsMicroERP'
+    organization: 'a-severin-github'
+    scannerMode: 'MSBuild'
+    projectKey: 'a-severin_MicroERP'
+    projectName: 'MicroERP'
+- task: SonarCloudAnalyze@1
