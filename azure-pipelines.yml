@@ -5,6 +5,7 @@ trigger:
   paths:
     exclude:
     - docs/*
+    - README.md
 
 pool:
   vmImage: 'windows-latest'
