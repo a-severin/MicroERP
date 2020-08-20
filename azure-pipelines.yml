@@ -32,23 +32,3 @@ steps:
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   condition: succeeded()
-
-- task: WhiteSource Bolt@20
-  displayName: 'Run WhiteSource Bolt'
-
-- task: VSBuild@1
-  inputs:
-    solution: '**/*.sln'
-    clean: true
-
-- task: SonarCloudPrepare@1
-  displayName: 'Prepare SonarCloud'
-  inputs:
-    SonarCloud: 'AzureDevOpsMicroERP'
-    organization: 'a-severin-github'
-    scannerMode: 'MSBuild'
-    projectKey: 'a-severin_MicroERP'
-    projectName: 'MicroERP'
-
-- task: SonarCloudAnalyze@1
-  displayName: 'Run SonarCloud Analyze'

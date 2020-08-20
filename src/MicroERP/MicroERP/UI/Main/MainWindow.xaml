@@ -1,0 +1,26 @@
+﻿<Window
+    x:Class="MicroERP.UI.Main.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:routing="clr-namespace:MicroERP.Routing"
+    Title="{Binding Title}"
+    Width="1200"
+    Height="800"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <ContentControl
+            Grid.Column="0"
+            prism:RegionManager.RegionName="{x:Static routing:RegionNames.NavigationMenuRegion}" />
+
+        <ContentControl
+            Grid.Column="1"
+            prism:RegionManager.RegionName="{x:Static routing:RegionNames.ContentRegion}" />
+    </Grid>
+</Window>

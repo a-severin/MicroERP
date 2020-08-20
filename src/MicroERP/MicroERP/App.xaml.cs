@@ -1,11 +1,15 @@
 ﻿using Prism.Ioc;
-using MicroERP.Views;
 using System.Windows;
+using MicroERP.Routing;
+using MicroERP.UI.CustomersScreen;
+using MicroERP.UI.HomeScreen;
 using Prism.Modularity;
-using MicroERP.Modules.ModuleName;
-using MicroERP.Modules.NavigationMenu;
-using MicroERP.Services.Interfaces;
-using MicroERP.Services;
+using MicroERP.UI.Main;
+using MicroERP.UI.NavigationMenu;
+using MicroERP.UI.ProjectsScreen;
+using MicroERP.UI.ResourcesScreen;
+using Prism.Mvvm;
+using Prism.Regions;
 
 namespace MicroERP
 {
@@ -16,18 +20,24 @@ namespace MicroERP
     {
         protected override Window CreateShell()
         {
+            var regionManager = Container.Resolve<IRegionManager>();
+            regionManager.RegisterViewWithRegion(RegionNames.NavigationMenuRegion, typeof(NavigationMenu));
             return Container.Resolve<MainWindow>();
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.RegisterSingleton<IMessageService, MessageService>();
-        }
+            ViewModelLocationProvider.Register<MainWindow, MainViewModel>();
+            ViewModelLocationProvider.Register<NavigationMenu, NavigationMenuViewModel>();
+            ViewModelLocationProvider.Register<ProjectsScreen, ProjectsScreenViewModel>();
+            ViewModelLocationProvider.Register<ResourcesScreen, ResourcesScreenViewModel>();
+            ViewModelLocationProvider.Register<CustomersScreen, CustomersScreenViewModel>();
 
-        protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
-        {
-            moduleCatalog.AddModule<ModuleNameModule>();
-            moduleCatalog.AddModule<NavigationMenuModule>();
+
+            containerRegistry.RegisterForNavigation<HomeScreen>(ScreenNames.HomeScreen);
+            containerRegistry.RegisterForNavigation<ProjectsScreen>(ScreenNames.ProjectsScreen);
+            containerRegistry.RegisterForNavigation<ResourcesScreen>(ScreenNames.ResourcesScreen);
+            containerRegistry.RegisterForNavigation<CustomersScreen>(ScreenNames.CustomersScreen);
         }
     }
 }
